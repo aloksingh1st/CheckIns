@@ -1,6 +1,6 @@
 import React from "react";
 
-const Login = () => {
+const Register = () => {
   return (
     <>
       <section style={{ margin: "10rem" }}>
@@ -25,6 +25,38 @@ const Login = () => {
                       id="email"
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="name@company.com"
+                      required=""
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Your Name
+                    </label>
+                    <input
+                      type="name"
+                      name="name"
+                      id="name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Organization name"
+                      required=""
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="organizationcode"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Organization Code
+                    </label>
+                    <input
+                      type="orgcode"
+                      name="orgcode"
+                      id="orgcode"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Organization code"
                       required=""
                     />
                   </div>
@@ -58,15 +90,15 @@ const Login = () => {
                     class="w-full text-white focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                     style={{ background: "#E83678" }}
                   >
-                    Sign in
+                    Sign Up
                   </button>
                   <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                    Don’t have an account yet?{" "}
+                    Already have an account?{" "}
                     <a
-                      href="/register"
+                      href="/mem/login"
                       class="font-medium text-primary-600 hover:underline dark:text-primary-500"
                     >
-                      Sign up
+                      log in
                     </a>
                   </p>
                 </form>
@@ -79,4 +111,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

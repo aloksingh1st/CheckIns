@@ -5,6 +5,7 @@ const Footer = () => {
     <>
       {/* <!--Footer container--> */}
       <section
+      id="footer"
         className="text-center text-white "
         style={{ backgroundColor: "#2a3842" }}
       >
