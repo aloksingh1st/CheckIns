@@ -41,7 +41,6 @@ const Login = () => {
     
             // Store the token in local storage
             localStorage.setItem('data', JSON.stringify(data));
-
             navigate("/dashboard")
     
             // Perform any additional actions (e.g., redirecting to a protected route)

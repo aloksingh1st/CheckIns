@@ -6,6 +6,11 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [active, setActive] = useState("Home");
 
+  const loggedData = localStorage.getItem("data");
+
+  const hideObject = {
+    display:"none",
+  }
 
   const handleLogout = () => {
     console.log("logout");
@@ -28,7 +33,7 @@ const Navbar = () => {
               Checkin's
             </span>
           </a>
-          <div className="flex items-center md:order-2">
+          <div className="flex items-center md:order-2" style={loggedData ? {display:"flex"} : hideObject}>
             <button
               type="button"
               className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -40,7 +45,7 @@ const Navbar = () => {
               <span className="sr-only">Open user menu</span>
               <img
                 className="w-8 h-8 rounded-full"
-                src="/docs/images/people/profile-picture-3.jpg"
+                src="https://cdn-icons-png.flaticon.com/512/219/219966.png"
                 alt="user photo"
               />
             </button>
