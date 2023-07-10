@@ -1,23 +1,21 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router"
+import { useNavigate } from "react-router";
 
 const Navbar = () => {
-
   const navigate = useNavigate();
   const [active, setActive] = useState("Home");
 
   const loggedData = localStorage.getItem("data");
 
   const hideObject = {
-    display:"none",
-  }
+    display: "none",
+  };
 
   const handleLogout = () => {
     console.log("logout");
     localStorage.removeItem("data");
     navigate("/login");
-
-  }
+  };
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900 mt-[-2rem]">
@@ -28,12 +26,17 @@ const Navbar = () => {
               className="h-8 mr-3"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl text-[#E83678] font-semibold whitespace-nowrap dark:text-white"
-            style={{color:"#E83678"}}>
+            <span
+              className="self-center text-2xl text-[#E83678] font-semibold whitespace-nowrap dark:text-white"
+              style={{ color: "#E83678" }}
+            >
               Checkin's
             </span>
           </a>
-          <div className="flex items-center md:order-2" style={loggedData ? {display:"flex"} : hideObject}>
+          <div
+            className="flex items-center md:order-2"
+            style={loggedData ? { display: "flex" } : hideObject}
+          >
             <button
               type="button"
               className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -73,10 +76,10 @@ const Navbar = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/mem/dashboard"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
-                    Settings
+                    Member Dashboard
                   </a>
                 </li>
                 <li>
@@ -89,8 +92,8 @@ const Navbar = () => {
                 </li>
                 <li>
                   <a
-                  // href=""
-                    onClick={()=>handleLogout()}
+                    // href=""
+                    onClick={() => handleLogout()}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
                     Sign out
@@ -135,7 +138,7 @@ const Navbar = () => {
                     setActive("Home");
                   }}
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                  style={active == "Home" ? {color:"#E83678"} : null}
+                  style={active == "Home" ? { color: "#E83678" } : null}
                   aria-current="page"
                 >
                   Home
@@ -147,7 +150,7 @@ const Navbar = () => {
                   onClick={() => {
                     setActive("about");
                   }}
-                  style={active == "about" ? {color:"#E83678"} : null}
+                  style={active == "about" ? { color: "#E83678" } : null}
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   About
@@ -159,7 +162,7 @@ const Navbar = () => {
                   onClick={() => {
                     setActive("services");
                   }}
-                  style={active == "services" ? {color:"#E83678"} : null}
+                  style={active == "services" ? { color: "#E83678" } : null}
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#E83678] md:p-0 dark:text-white md:dark:hover:text-[#E83678] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Services
@@ -171,15 +174,13 @@ const Navbar = () => {
                   onClick={() => {
                     setActive("Login");
                   }}
-                  style={active == "Login" ? {color:"#E83678"} : null}
+                  style={active == "Login" ? { color: "#E83678" } : null}
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Login
                 </a>
               </li>
-              <li>
-              
-              </li>
+              <li></li>
             </ul>
           </div>
         </div>

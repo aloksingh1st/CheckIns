@@ -20,6 +20,9 @@ import Profile from "../../Components/Dashboard/Profile";
 import TimeTable from "../../Components/Dashboard/Member/TimeTable.jsx";
 import UpdateStatus from "../../Components/Dashboard/Member/UpdateStatus";
 import Privacy from "../../Components/Dashboard/Member/Privacy";
+import ShowTable from "../../Components/Dashboard/Member/ShowTable";
+
+import MemberSecond from "../../Components/Dashboard/Member/MemberSecond.jsx";
 
 
 const Dashboard = () => {
@@ -184,6 +187,16 @@ const clStyle = {
               </a>
 
               <a
+                class="flex items-center space-x-2 py-2 px-4 transition duration-200 hover:bg-gray-700 text-white hover:text-[#E83678]"
+                onClick={() => setActive("showtable")}
+                style={active == "showtable" ? clStyle:null}
+              >
+                <FontAwesomeIcon icon={faCirclePlus} />
+                <span>Show Time-Table</span>
+              </a>
+
+
+              <a
                
                 class="flex items-center space-x-2 py-2 px-4 transition duration-200 hover:bg-gray-700 text-white hover:text-[#E83678]"
                 onClick={() => setActive("members")}
@@ -219,9 +232,9 @@ const clStyle = {
             {/* <!-- Replace with your content / */}
             {active == "dashboard" ? <HomeDash /> : <></>}
             {active == "updatestatus" ? <UpdateStatus /> : <></>}
-            {active == "managerole" ? <ManageRole /> :  <></>}
+            {active == "showtable" ? <ShowTable /> :  <></>}
             {active == "timetable" ? <TimeTable /> :  <></>}
-            {active == "members" ? <Members /> :  <></>}
+            {active == "members" ? <MemberSecond /> :  <></>}
             {active == "profile" ? <Profile /> :  <></>}
             {active == "privacy" ? <Privacy /> :  <></>}
           
