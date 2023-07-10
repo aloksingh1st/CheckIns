@@ -7,6 +7,7 @@ import LandingPage from './Pages/LandingPage';
 import Footer from './Components/Common/Footer';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
+import Calendar from './Pages/Calender';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/Calender"element={<Calendar />} />
         </Routes>
     </Router>
 
