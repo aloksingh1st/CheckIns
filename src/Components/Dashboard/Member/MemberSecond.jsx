@@ -16,7 +16,7 @@ const Status = () => {
   );
 };
 
-const Members = () => {
+const MemberSecond = () => {
   const [data, setData] = useState("");
   const d = JSON.parse(localStorage.getItem("data"));
   const [elem, setElem] = useState([]);
@@ -30,7 +30,7 @@ const Members = () => {
 
         // Fetch data from the API with authorization headers
         const response = await fetch(
-          `http://143.244.129.24/api/org/member_list`,
+          `http://143.244.129.24/api/member/other_members`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -107,4 +107,4 @@ const Members = () => {
   );
 };
 
-export default Members;
+export default MemberSecond;
