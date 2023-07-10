@@ -1,6 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
+
+
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+    const navigate = useNavigate()
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    
+        // Create the request body in the required format
+        const requestBody = {
+          email,
+          password
+        };
+    
+        // Make a POST request to the login API endpoint
+        fetch('http://143.244.129.24/api/user/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(requestBody)
+        })
+          .then((response) => {
+            if (response.ok) {
+              // Handle successful login
+              return response.json();
+            } else {
+              // Handle login error
+              throw new Error('Login failed');
+            }
+          })
+          .then((data) => {
+            // Handle successful login
+            const token = data.token;
+    
+            // Store the token in local storage
+            localStorage.setItem('data', JSON.stringify(data));
+
+            navigate("/dashboard")
+    
+            // Perform any additional actions (e.g., redirecting to a protected route)
+          })
+          .catch((error) => {
+            // Handle login error
+            console.error('Login failed:', error);
+          });
+      };
+
+
   return (
     <>
       <section style={{ margin: "10rem" }}>
@@ -11,7 +63,7 @@ const Login = () => {
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                   Log in to your account
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="#">
+                <form class="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                   <div>
                     <label
                       for="email"
@@ -25,7 +77,9 @@ const Login = () => {
                       id="email"
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="name@company.com"
-                      required=""
+                      required="true"
+                      value={email}
+                      onChange={(e) => {setEmail(e.target.value)}}
                     />
                   </div>
                   <div>
@@ -41,7 +95,10 @@ const Login = () => {
                       id="password"
                       placeholder="••••••••"
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      required=""
+                      required="true"
+
+                      value={password}
+                      onChange={(e) => {setPassword(e.target.value)}}
                     />
                   </div>
                   <div class="flex items-center justify-between">

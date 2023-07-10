@@ -1,7 +1,18 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router"
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
   const [active, setActive] = useState("Home");
+
+
+  const handleLogout = () => {
+    console.log("logout");
+    localStorage.removeItem("data");
+    navigate("/login");
+
+  }
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900 mt-[-2rem]">
@@ -73,7 +84,8 @@ const Navbar = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                  // href=""
+                    onClick={()=>handleLogout()}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
                     Sign out

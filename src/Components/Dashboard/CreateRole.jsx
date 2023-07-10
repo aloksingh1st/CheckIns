@@ -3,6 +3,12 @@
 import React, { useState } from "react";
 
 const Form = () => {
+
+  const data = JSON.parse(localStorage.getItem('data'));
+  console.log(data.access);
+
+  const token = data.access;
+
   const [name, setName] = useState("");
   const [add_time_table, setAdd_time_table] = useState(false);
   const [upload_status, setUpload_status] = useState(false);
@@ -11,26 +17,29 @@ const Form = () => {
     e.preventDefault();
 
     // Make an API call to the server to save the form data
-    // fetch('/api/formdata', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ name, address }),
-    // })
-    //   .then((response) => response.text())
-    //   .then((data) => {
-    //     console.log(data); // Display the response from the server
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+    fetch('http://143.244.129.24/api/org/create_role', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, add_time_table, upload_status }),
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        alert(data)
+        console.log(data); // Display the response from the server
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
-    // // Reset the form fields
-    // setName('');
-    // setAddress('');
+    // Reset the form fields
+    setName('');
+    setAdd_time_table(false);
+    setUpload_status(false);
 
-    console.log(name, address);
+    console.log(name, );
   };
 
   return (

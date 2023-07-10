@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { redirect, useNavigate } from "react-router-dom";
+
+
 
 const Register = () => {
+
+  const navigate = useNavigate();
 
   const [org_name, setOrg_name] = useState("");
   const [email, setEmail] = useState("");
@@ -23,14 +28,15 @@ const Register = () => {
 
       if (response.ok) {
         // Handle successful response
+        navigate("/login");
         console.log("Registration submitted successfully!");
       } else {
         // Handle error response
-        console.error("Error submitting registration:", response.statusText);
+       alert("Error submitting registration:", response.statusText);
       }
     } catch (error) {
       // Handle network or other errors
-      console.error("Error submitting registration:", error);
+     alert("Error submitting registration:", error);
     }
   };
 
@@ -128,6 +134,16 @@ const Register = () => {
                       log in
                     </a>
                   </p>
+
+                  <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                   Not a Oraganization ?{" "}
+                    <a
+                      href="/mem/register"
+                      className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    >SignUp
+                    </a>
+
+                    </p>
                 </form>
               </div>
             </div>
