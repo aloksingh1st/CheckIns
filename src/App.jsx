@@ -7,7 +7,9 @@ import LandingPage from './Pages/LandingPage';
 import Footer from './Components/Common/Footer';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
-import Calendar from './Pages/Calender';
+// import Calendar from './Pages/Calender';
+
+
 
 function App() {
   const [count, setCount] = useState(0)
